@@ -31,7 +31,7 @@ our @EXPORT = qw(
 	
 );
 
-our $VERSION = '1.2';
+our $VERSION = '1.3';
 
 
 # Preloaded methods go here.
@@ -59,6 +59,8 @@ sub add_list_group {
 
   my ($fh, $model) = @_;
 
+  $model->{data}[0][0][0] = "" unless defined($model->{data}[0][0][0]);
+
   print $fh sprintf 'addListGroup("%s", "%s");', 
     $model->{listgroupname},
       $model->{data}[0][0][0];
@@ -71,6 +73,7 @@ sub quoteary {
   my $size = shift;
 
   for my $elt (0..$size-2) {
+    $ary->[$elt] = "" unless defined($ary->[$elt]);
     $ary->[$elt] = sprintf '"%s"', $ary->[$elt];
   }
 

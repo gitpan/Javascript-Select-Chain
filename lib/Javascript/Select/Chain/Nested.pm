@@ -61,6 +61,7 @@ sub add_list_group {
   my ($fh, $model) = @_;
 
   my $first_list_item = (keys %{$model->{data}[0][0]})[0];
+  $first_list_item = "" unless defined($first_list_item);
 
   print $fh sprintf 'addListGroup("%s", "%s");', 
     $model->{listgroupname},
@@ -74,6 +75,7 @@ sub quoteary {
   my $size = shift;
 
   for my $elt (0..$size-2) {
+    $ary->[$elt] = "" unless defined($ary->[$elt]);
     $ary->[$elt] = sprintf '"%s"', $ary->[$elt];
   }
 
