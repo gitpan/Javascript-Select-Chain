@@ -53,11 +53,11 @@ AR_STATIC_ARGS = cr
 DIRFILESEP = /
 NAME = Javascript::Select::Chain
 NAME_SYM = Javascript_Select_Chain
-VERSION = 0.09
+VERSION = 1.0
 VERSION_MACRO = VERSION
-VERSION_SYM = 0_09
+VERSION_SYM = 1_0
 DEFINE_VERSION = -D$(VERSION_MACRO)=\"$(VERSION)\"
-XS_VERSION = 0.09
+XS_VERSION = 1.0
 XS_VERSION_MACRO = XS_VERSION
 XS_DEFINE_VERSION = -D$(XS_VERSION_MACRO)=\"$(XS_VERSION)\"
 INST_ARCHLIB = blib/arch
@@ -173,7 +173,7 @@ PERL_ARCHIVE       = $(PERL_INC)/libperl.dll.a
 PERL_ARCHIVE_AFTER = 
 
 
-TO_INST_PM = Car.pm \
+TO_INST_PM = Car1.pm \
 	Car2.pm \
 	lib/Javascript/Select/Chain.pm \
 	lib/Javascript/Select/Chain/Nested.pm \
@@ -183,10 +183,10 @@ PM_TO_BLIB = lib/Javascript/Select/Chain.pm \
 	blib/lib/Javascript/Select/Chain.pm \
 	Car2.pm \
 	$(INST_LIB)/Javascript/Select/Car2.pm \
+	Car1.pm \
+	$(INST_LIB)/Javascript/Select/Car1.pm \
 	lib/Javascript/Select/Chain/Nested.pm \
 	blib/lib/Javascript/Select/Chain/Nested.pm \
-	Car.pm \
-	$(INST_LIB)/Javascript/Select/Car.pm \
 	make-manifest.pl \
 	$(INST_LIB)/Javascript/Select/make-manifest.pl
 
@@ -249,7 +249,7 @@ RCS_LABEL = rcs -Nv$(VERSION_SYM): -q
 DIST_CP = best
 DIST_DEFAULT = tardist
 DISTNAME = Javascript-Select-Chain
-DISTVNAME = Javascript-Select-Chain-0.09
+DISTVNAME = Javascript-Select-Chain-1.0
 
 
 # --- MakeMaker macro section:
@@ -437,7 +437,7 @@ realclean_subdirs :
 realclean purge ::  clean realclean_subdirs
 	$(RM_RF) $(INST_AUTODIR) $(INST_ARCHAUTODIR)
 	$(RM_RF) $(DISTVNAME)
-	$(RM_F)  $(INST_LIB)/Javascript/Select/make-manifest.pl blib/lib/Javascript/Select/Chain/Nested.pm $(INST_LIB)/Javascript/Select/Car2.pm $(MAKEFILE_OLD) $(FIRST_MAKEFILE) $(INST_LIB)/Javascript/Select/Car.pm
+	$(RM_F)  $(INST_LIB)/Javascript/Select/make-manifest.pl blib/lib/Javascript/Select/Chain/Nested.pm $(INST_LIB)/Javascript/Select/Car1.pm $(INST_LIB)/Javascript/Select/Car2.pm $(MAKEFILE_OLD) $(FIRST_MAKEFILE)
 	$(RM_F) blib/lib/Javascript/Select/Chain.pm
 
 
@@ -446,7 +446,7 @@ metafile :
 	$(NOECHO) $(ECHO) '# http://module-build.sourceforge.net/META-spec.html' > META.yml
 	$(NOECHO) $(ECHO) '#XXXXXXX This is a prototype!!!  It will change in the future!!! XXXXX#' >> META.yml
 	$(NOECHO) $(ECHO) 'name:         Javascript-Select-Chain' >> META.yml
-	$(NOECHO) $(ECHO) 'version:      0.09' >> META.yml
+	$(NOECHO) $(ECHO) 'version:      1.0' >> META.yml
 	$(NOECHO) $(ECHO) 'version_from: lib/Javascript/Select/Chain.pm' >> META.yml
 	$(NOECHO) $(ECHO) 'installdirs:  site' >> META.yml
 	$(NOECHO) $(ECHO) 'requires:' >> META.yml
@@ -714,7 +714,7 @@ testdb_static :: testdb_dynamic
 # --- MakeMaker ppd section:
 # Creates a PPD (Perl Package Description) for a binary distribution.
 ppd:
-	$(NOECHO) $(ECHO) '<SOFTPKG NAME="$(DISTNAME)" VERSION="0,09,0,0">' > $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '<SOFTPKG NAME="$(DISTNAME)" VERSION="1,0,0,0">' > $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <TITLE>$(DISTNAME)</TITLE>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <ABSTRACT>generate arbitrary depth DHTML select pulldowns</ABSTRACT>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <AUTHOR>tbrannon &lt;tbrannon@familiehaase.de&gt;</AUTHOR>' >> $(DISTNAME).ppd
@@ -732,8 +732,8 @@ pm_to_blib: $(TO_INST_PM)
 	$(NOECHO) $(PERLRUN) -MExtUtils::Install -e 'pm_to_blib({@ARGV}, '\''$(INST_LIB)/auto'\'', '\''$(PM_FILTER)'\'')'\
 	  lib/Javascript/Select/Chain.pm blib/lib/Javascript/Select/Chain.pm \
 	  Car2.pm $(INST_LIB)/Javascript/Select/Car2.pm \
+	  Car1.pm $(INST_LIB)/Javascript/Select/Car1.pm \
 	  lib/Javascript/Select/Chain/Nested.pm blib/lib/Javascript/Select/Chain/Nested.pm \
-	  Car.pm $(INST_LIB)/Javascript/Select/Car.pm \
 	  make-manifest.pl $(INST_LIB)/Javascript/Select/make-manifest.pl 
 	$(NOECHO) $(TOUCH) $@
 

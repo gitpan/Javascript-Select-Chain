@@ -31,7 +31,7 @@ our @EXPORT = qw(
 	
 );
 
-our $VERSION = '0.09';
+our $VERSION = '1.0';
 
 
 # Preloaded methods go here.
@@ -172,7 +172,7 @@ However, I will do my best to explain everything you need to know here.
 C<selectchain()> takes two arguments. C<$model> is a hash reference
 with two keys, C<data> and C<listgroupname>. The value of the key
 C<listgroupname> is exactly what is referred to in the original
-docs. See C<Car.pm> in the distribution for a sample usage. The value
+docs. See C<Car1.pm> in the distribution for a sample usage. The value
 of the key C<data> is an array reference in which each element
 completely represents one pulldown in the chain. Summarily, here is
 C<$model> at the highest level:
@@ -204,7 +204,7 @@ my $level1 =
   ];
 
 
-C<Car.pm> in the distro contains a complete example which generates the
+C<Car1.pm> in the distro contains a complete example which generates the
 3-level hierarchy shown at www.xyscripts.com.
 
 
