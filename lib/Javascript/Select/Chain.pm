@@ -31,7 +31,7 @@ our @EXPORT = qw(
 	
 );
 
-our $VERSION = '1.1';
+our $VERSION = '1.2';
 
 
 # Preloaded methods go here.
@@ -193,7 +193,7 @@ in the pulldown is the default selected one.
 
 Here is a sample level, completely described:
 
-my $level1 =
+ my $level1 =
   [
    [ "car-makers", "Select a maker", "",         "dummy-list"  ],
    [ "car-makers", "Toyota",         "Toyota",   "Toyota"       ],
