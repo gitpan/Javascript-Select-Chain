@@ -17,8 +17,8 @@ ok(1); # If we made it this far, we're ok.
 
 use lib '.';
 
-use_ok('Car');
+use_ok('Car1');
 
 use Data::Dumper;
 
-selectchain( { Car->data }, { js => 'sample.js' });
+selectchain( { Car1->data }, { js => 'sample.js' });
